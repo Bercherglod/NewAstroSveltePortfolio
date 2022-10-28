@@ -1,0 +1,12 @@
+{
+    "tabWidth": 1,
+    "useTabs": true,
+    "trailingComma": "none",
+    "semi": false,
+    "singleQuote": true,
+    "editor.formatOnSave": true,
+    "printWidth": 80,
+    "html.format.wrapAttributes": "force-aligned",
+    "svelte.format.wrapAttributes": "force-aligned",
+    "bracketSameLine": true
+}
