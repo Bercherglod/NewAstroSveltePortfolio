@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/svelte": "^1.0.0",
     "@astrojs/tailwind": "^2.0.1",
+    "@astrojs/vercel": "^2.3.2",
     "astro": "^1.5.0",
     "pageable": "^0.6.8",
     "svelte": "^3.50.1"
