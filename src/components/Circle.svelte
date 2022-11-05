@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="w-[100px] h-[100px] rounded-full bg-slate-700/[0.2] mx-auto my-auto  flex justify-center items-center">
+	class="w-[70px] h-[70px] rounded-full bg-slate-700/[0.2] mx-auto my-auto  flex justify-center items-center">
 	<div
 		bind:this={cotnainer}
 		id="container"
@@ -43,12 +43,37 @@
 	$top-width: 76px;
 	$left-top: calc(($base-width - $top-width) / 2);
 	$time: 5s;
+	$sizes: (
+		'xs': 360px,
+		'xm': 640px,
+		'sm': 1000px,
+		'lg': 1280px,
+		'xl': 1600px
+	);
+	@mixin media($minmax, $media) {
+		@each $size, $resolution in $sizes {
+			@if $media == $size {
+				@media only screen and (#{$minmax}-width: $resolution) {
+					@content;
+				}
+			}
+		}
+	}
+
 	#container {
 		width: $base-width;
 		height: $base-width;
+		@include media('max', 'xm') {
+			width: calc($base-width/1.5);
+			height: calc($base-width/1.5);
+		}
 		#percents {
 			width: $base-width;
 			height: $base-width;
+			@include media('max', 'xm') {
+				width: calc($base-width/1.5);
+				height: calc($base-width/1.5);
+			}
 			div {
 				margin: 0;
 				position: absolute;
@@ -64,6 +89,12 @@
 			width: $base-width;
 			height: $base-width;
 			top: -$base-width;
+			@include media('max', 'xm') {
+				width: calc($base-width/1.5);
+				height: calc($base-width/1.5);
+				top: calc(-#{$base-width} / 1.5);
+			}
+
 			box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1) inset;
 			background-color: #ffffff34;
 			border-radius: $base-width;
@@ -76,6 +107,12 @@
 				top: $left-top;
 				width: $top-width;
 				height: $top-width;
+				@include media('max', 'xm') {
+					left: calc($left-top/1.5);
+					top: calc($left-top/1.5);
+					width: calc($top-width/1.5);
+					height: calc($top-width/1.5);
+				}
 				border-radius: 50%;
 				background-color: #ffffff;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
