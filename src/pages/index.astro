@@ -4,27 +4,24 @@ import FrameAndCircle from '../components/FrameAndCircle.svelte';
 import CartMob from '../components/CartMob.svelte'
 import '../fullpage/pageable.min.css'
 ---
-<script src="/fullpage/pageable.min.js" is:inline />
-<script>
-    new Pageable('#container2');
-</script>
 
 
 <Layout title="Portfolio">
-    <div id="container2">
-        <div data-anchor="Page 1">
-            <header class="w-[full] h-[100vh] flex justify-center items-center">
-                <div class="w-[300px] h-[400px]">
-                    <div class="w-[300px] h-[300px] bg-white  border-solid border-4 border-white rounded-full overflow-hidden">
-            <img src="/ava.webp" class="transform scale-x-[-1]"/>
+    <main class="pg-container">
+        <section data-anchor="Page 1" class="flex justify-center items-center">
+            <div class="text">
+            <header class="w-[full] flex flex-col-reverse xm:flex-row  flex-wrap-reverse justify-center items-center">
+                <div class="w-[300px] xm:w-[200px]  sm:w-[300px]">
+                    <div class="w-[300px] xm:w-[200px] sm:w-[300px] bg-white  border-solid border-4 border-white rounded-full overflow-hidden">
+            <img src="/ava.webp" class="xm:transform xm:scale-x-[-1]"/>
                     </div>
                     <div class="text-xl font-bold text-white text-center">Борис Нечай</div>
                 </div>
-                <div class="h-[400px]" >
-                    <p class="text-3xl  pl-4 font-bold text-white">Добрый день</p>
-                    <p class="text-3xl  pl-4 font-bold text-white">Я фуллстек web-разработчик</p>
-                    <p class="text-5xl p-4 font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">Давайте создадим<br> вкусный сайт!</p>
-                    <div class="flex  p-4 justify-start items-center">
+                <div class="" >
+                    <p class="text-xl xm:text-2xl text-center xm:text-left pl-4 font-bold text-white">Добрый день</p>
+                    <p class="text-xl xm:text-2xl text-center xm:text-left  pl-4 font-bold text-white">Я фуллстек web-разработчик</p>
+                    <p class="text-3xl xm:text-4xl sm:text-4xl text-center xm:text-left p-4 font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">Давайте создадим<br> вкусный сайт!</p>
+                    <div class="flex  p-4 justify-evenly xm:justify-start items-center">
                         <a href="https://wa.me/+79604833420"><div class="w-[60px] h-[60px] bg-white rounded-full mr-3 flex justify-center items-center overflow-hidden cursor-pointer"><img src="/whatsapp.svg" /></div></a>
                         <a href="https://telegram.me/bercherglod"><div class="w-[60px] h-[60px] bg-white rounded-full mr-3 flex justify-center items-center cursor-pointer"><img src="/telega.svg"width="42"/></div></a>
                         <a href="mailto:bercherglod@gmail.com"><div class="w-[60px] h-[60px] bg-white rounded-full flex justify-center items-center cursor-pointer"><img src="/gmail.svg" width="40"/></div></a>
@@ -32,13 +29,37 @@ import '../fullpage/pageable.min.css'
                 </div>
             </header>
         </div>
-        <div data-anchor="Page 2"><FrameAndCircle client:load /></div>
-        <div data-anchor="Page 3"><CartMob client:load /></div>
-        <div data-anchor="Page 4"><a href="/tractorcat/">Tractorcat</a></div>
-    </div> 
+        </section>
+        <section data-anchor="Page 2" class="flex justify-center items-center"><div class="text"><FrameAndCircle client:visible /></div></section>
+        <section data-anchor="Page 3" class="flex justify-center items-center"><div class="text"><CartMob client:load /></div></section>
+        <section data-anchor="Page 4" class="flex justify-center items-center"><div class="text"><a href="/tractorcat/">Tractorcat</a></div></section>
+        <section data-anchor="Page 5" class="flex justify-center items-center"><div class="text"><div class="w-[300px] h-[300px] bg-slate-400">Tractorcat</div></div></section>
+
+    </main> 
 
 
 
 
 
 </Layout>
+<script src="/fullpage/pageable.min.js" is:inline></script>
+<script>
+    const pageable = new Pageable("main", {
+	animation: 400,
+	delay: 300,
+	onBeforeStart: function() {
+		this.pages.forEach((page, i) => {
+			page.classList.remove("pg-active");
+		});	
+	}	
+});
+</script>
+<style>
+.text {
+    transform: scale(0.9, 0.9);
+transition: all 500ms;
+}
+.pg-active .text {
+    transform: scale(1, 1);
+}
+</style>

@@ -72,23 +72,12 @@
 	}
 </script>
 
-<div class="w-full aspect-[16/7] flex flex-colbg-cover">
+<div
+	class="w-[100vw] aspect-[1/1]  xm:h-auto xm:aspect-[16/7] flex flex-col text-center">
 	<div
 		bind:this={parentFrame}
 		bind:clientWidth={parentFrameWidth}
-		class="parentFrame w-[84vw] xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px]  aspect-[16/7] m-auto ">
-		<!-- {#if visible}
-			<div id="previewFrame"
-				transition:fade
-				binr:this={divBlur}
-				class="absolute border-solid border-[4px] w-[84vw] xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px]  aspect-[16/7] backdrop-blur-sm rounded-3xl bg-top bg-cover bg-no-repeat overflow-hidden z-20"
-				style="background-image: url(/frame_bg.webp); "
-			>
-				<div
-					class="w-[84vw] xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px]  aspect-[16/7] backdrop-blur-sm rounded-3xl"
-				/>
-			</div>
-		{/if} -->
+		class="parentFrame w-full aspect-[1/1] xm:h-auto xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px] xm:aspect-[16/7] m-auto ">
 		<div
 			bind:this={scrollIcon}
 			class="scroll-icon absolute top-[50%] left-[50%] ml-[-6px] mt-[-43px] hidden">
@@ -109,7 +98,7 @@
 			allow="fullscreen"
 			width={frameSetWidth}
 			title="tractorcat"
-			class="absolute aspect-[16/7] rounded-3xl shadow-2xl border-solid border-[4px]"
+			class="absolute aspect-[1/1] xm:h-auto xm:aspect-[16/7] xm:rounded-3xl xm:shadow-2xl xm:border-solid xm:border-[4px]"
 			style="transform: scale({scaleFrame}); transform-origin: 0px 0px;" />
 	</div>
 </div>

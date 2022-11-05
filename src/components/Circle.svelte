@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="w-[100px] h-[100px] rounded-full bg-slate-700/[0.2] mx-auto my-auto">
+	class="w-[100px] h-[100px] rounded-full bg-slate-700/[0.2] mx-auto my-auto  flex justify-center items-center">
 	<div
 		bind:this={cotnainer}
 		id="container"
@@ -46,7 +46,6 @@
 	#container {
 		width: $base-width;
 		height: $base-width;
-		margin-top: 5px;
 		#percents {
 			width: $base-width;
 			height: $base-width;

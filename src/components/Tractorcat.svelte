@@ -84,7 +84,6 @@
 		}
 	}
 	function timerToResize() {
-		console.log('timerToResize')
 		timeoutResize = setTimeout(() => {
 			setBaseOfferLet()
 			shiftFactor()
@@ -92,7 +91,6 @@
 	}
 
 	function shiftFactor() {
-		console.log('shiftFactor')
 		let allShiftDiv = parentShiftDiv.querySelectorAll('div')
 		for (let e = 0; e < allShiftDiv.length; e++) {
 			let i =
