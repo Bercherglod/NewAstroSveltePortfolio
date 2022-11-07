@@ -73,11 +73,11 @@
 </script>
 
 <div
-	class="w-[100vw] aspect-[2/1]  xm:h-auto xm:aspect-[16/7] flex flex-col text-center">
+	class="w-[100vw] aspect-[2/1]  xm:h-auto xm:aspect-[16/7] flex flex-col text-center ">
 	<div
 		bind:this={parentFrame}
 		bind:clientWidth={parentFrameWidth}
-		class="parentFrame w-full aspect-[2/1] xm:h-auto xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px] xm:aspect-[16/7] m-auto ">
+		class="parentFrame w-full aspect-[2/1] xm:h-auto xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px] xm:aspect-[16/7] m-auto border-orange-200 border-solid border-t-2 border-b-2  xm:border-none">
 		<div
 			bind:this={scrollIcon}
 			class="scroll-icon absolute top-[50%] left-[50%] ml-[-6px] mt-[-43px] hidden">

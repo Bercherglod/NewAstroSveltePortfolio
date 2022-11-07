@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="w-[70px] h-[70px] rounded-full bg-slate-700/[0.2] mx-auto my-auto  flex justify-center items-center">
+	class="w-[70px] h-[70px] xm:w-[100px] xm:h-[100px] rounded-full bg-slate-700/[0.2] mx-auto my-auto  flex justify-center items-center">
 	<div
 		bind:this={cotnainer}
 		id="container"
@@ -39,26 +39,11 @@
 </div>
 
 <style lang="scss">
+	@import '../styles/global.scss';
 	$base-width: 90px;
 	$top-width: 76px;
 	$left-top: calc(($base-width - $top-width) / 2);
 	$time: 5s;
-	$sizes: (
-		'xs': 360px,
-		'xm': 640px,
-		'sm': 1000px,
-		'lg': 1280px,
-		'xl': 1600px
-	);
-	@mixin media($minmax, $media) {
-		@each $size, $resolution in $sizes {
-			@if $media == $size {
-				@media only screen and (#{$minmax}-width: $resolution) {
-					@content;
-				}
-			}
-		}
-	}
 
 	#container {
 		width: $base-width;

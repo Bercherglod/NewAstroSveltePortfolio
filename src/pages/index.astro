@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import FrameAndCircle from '../components/FrameAndCircle.svelte';
 import CartMob from '../components/CartMob.svelte'
 import '../fullpage/pageable.min.css'
+import '../styles/global.scss';
 ---
 
 
@@ -15,7 +16,7 @@ import '../fullpage/pageable.min.css'
                     <div class="w-full bg-white  border-solid border-4 border-white rounded-full overflow-hidden">
             <img src="/ava.webp" class="xm:transform xm:scale-x-[-1]"/>
                     </div>
-                    <div class="text-xl font-bold text-white text-center">Борис Нечай</div>
+                    <div class="text-base text-white text-center">Борис Нечай</div>
                 </div>
                 <div class="" >
                     <p class="text-base xm:text-2xl text-center xm:text-left pl-4 font-bold text-white">Добрый день</p>
@@ -62,4 +63,5 @@ transition: all 500ms;
 .pg-active .text {
     transform: scale(1, 1);
 }
+
 </style>
