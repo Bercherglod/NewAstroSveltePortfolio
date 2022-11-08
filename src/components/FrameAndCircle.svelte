@@ -4,22 +4,23 @@
 	import Frame from '../components/Frame.svelte'
 	import '../styles/global.scss'
 	import { onMount } from 'svelte'
+	import { query_selector_all } from 'svelte/internal'
 	//	import Frame from './Frame.svelte'
 	let frameLoad = false
 	let element
 	let intersecting
-	let tooltipLeft
+	let tooltip, timeoutRePos, tooltipLeft
+	let contWidth
 	let rect
 	let tooltipLeftNum
-	$: tooltipLeftNum && rect.left
+	$: contWidth && repositionTooltipLeft()
 
 	$: intersecting && startsCircles()
 	let CircleLenght
 	let startsCircle
 	const arrStartsCircle = [false, false, false, false]
 	onMount(() => {
-		rect = tooltipLeft.getBoundingClientRect()
-		tooltipLeftNum = rect.left
+		tooltip = document.querySelectorAll('.tooltip')
 	})
 	function startsCircles() {
 		for (let i = 0; i < arrStartsCircle.length; i++) {
@@ -28,14 +29,33 @@
 			}, i * 600)
 		}
 	}
+	function repositionTooltipLeft() {
+		console.log('repositionTooltipLeft')
+		if (timeoutRePos) clearTimeout(timeoutRePos)
+		var windowPositionRight =
+			window.pageXOffset + document.documentElement.clientWidth
+		timeoutRePos = setTimeout(() => {
+			tooltip.forEach((el) => {
+				let rect = el.getBoundingClientRect()
+				el.style.left = 'auto'
+				el.style.right = 'auto'
+				if (el.getBoundingClientRect().left < 0) el.style.left = '0'
+				if (
+					window.pageXOffset + el.getBoundingClientRect().right >
+					windowPositionRight
+				)
+					el.style.right = '0'
+			})
+		}, 1000)
+	}
 </script>
 
 <IntersectionObserver {element} bind:intersecting threshold={1}>
-	<div bind:this={element} class="w-full">
+	<div bind:this={element} bind:clientWidth={contWidth} class="w-full">
 		<Frame bind:frameLoad />
 		<h1
 			class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
-			{tooltipLeftNum}<!-- Создаю сайты на максималках! -->
+			{contWidth}<!-- Создаю сайты на максималках! -->
 		</h1>
 		<div
 			id="grid-circle"
@@ -211,6 +231,9 @@
 
 	.wrapper .icon:hover .tooltip {
 		top: -118px;
+		@include media('max', 'xm') {
+			top: -130px;
+		}
 		opacity: 1;
 		visibility: visible;
 		pointer-events: auto;
