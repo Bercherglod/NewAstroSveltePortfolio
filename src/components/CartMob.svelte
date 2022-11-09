@@ -2,6 +2,7 @@
 	//import Tractorcat from './Tractorcat.svelte';
 
 	import { onMount } from 'svelte'
+	import TractorcatMob from '../components/TractorcatMobil.svelte'
 	let card_x, card_y, shadow_x, shadow_y, text_shadow_x, text_shadow_y
 	let mouseMove
 	let innerWidth
@@ -40,7 +41,9 @@ text-shadow: {-text_shadow_x}px {text_shadow_y / 1}px 6px rgba(0, 0, 0, .8)">
 			<div class="thickness" />
 			<div class="thickness" />
 			<div class="w-full h-full rounded-lg  overflow-hidden">
-				<div class="w-[360px] h-[600px] bg-orange-600" />
+				<div class="w-[360px] h-[600px] rounded-lg bg-orange-600 overflow-hidden">
+					<TractorcatMob />
+				</div>
 			</div>
 		</div>
 	{:else}

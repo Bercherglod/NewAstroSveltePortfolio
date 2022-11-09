@@ -55,7 +55,7 @@
 		<Frame bind:frameLoad />
 		<h1
 			class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
-			{contWidth}<!-- Создаю сайты на максималках! -->
+			Создаю сайты на максималках!
 		</h1>
 		<div
 			id="grid-circle"
@@ -66,7 +66,8 @@
 					<div class="icon blue">
 						<span bind:this={tooltipLeft} class="tooltip">
 							Быстрые сайты любят пользователи и поисковики. Анализирует скорость
-							отклика сервера, отрисовка стилей, загрузки шрифтов и контента.</span>
+							отклика сервера, отрисовка стилей, загрузки шрифтов и контента.</span
+						><span class="before" />
 						<div class="header text-center text-base text-white">Performance</div>
 					</div>
 				</div>
@@ -77,7 +78,8 @@
 					<div class="icon blue">
 						<span class="tooltip">
 							Проверяет безопасность сайта и использование современных стандартов
-							веб-разработки.</span>
+							веб-разработки.</span
+						><span class="before" />
 						<div class="header text-center text-base text-white">Best Practices</div>
 					</div>
 				</div>
@@ -88,7 +90,8 @@
 					<div class="icon blue">
 						<span class="tooltip">
 							Оценка зависит от понятности и воспринимаемости контента, возможности
-							управлять интерфейсом.</span>
+							управлять интерфейсом.</span
+						><span class="before" />
 						<div class="header text-center text-base text-white">Accessibility</div>
 					</div>
 				</div>
@@ -100,7 +103,7 @@
 						<span class="tooltip">
 							Оценивает соответствие страницы поисковой оптимизации, адаптацию для
 							мобильных устройств.
-						</span>
+						</span><span class="before" />
 						<div class="header text-center text-base text-white">SEO</div>
 					</div>
 				</div>
@@ -118,7 +121,7 @@
 						<span class="tooltip">
 							Трансформирует сайт в приложение. При этом полностью сохраняется
 							функциональность нативного приложения.
-						</span>
+						</span><span class="before" />
 						<div class="header text-center text-base text-white">PWA</div>
 					</div>
 				</div>
@@ -138,6 +141,7 @@
 								class="contents text-blue-300">PageSpeed ​Insights</a
 							>.
 						</div>
+						<span class="before" />
 						<div class="header text-center text-base text-white">WebDev</div>
 					</div>
 				</div>
@@ -217,20 +221,28 @@
 		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	}
 
-	.wrapper .tooltip::before {
+	.wrapper .before {
 		position: absolute;
 		content: '';
 		height: 8px;
 		width: 8px;
-		background: #ffffff;
-		bottom: -3px;
+		background: #42425a;
+		bottom: 24px;
 		left: 50%;
+		visibility: hidden;
 		transform: translate(-50%) rotate(45deg);
 		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		@include media('max', 'xm') {
+			bottom: 20px;
+		}
+	}
+	.wrapper .icon:hover .before {
+		display: block;
+		visibility: visible;
 	}
 
 	.wrapper .icon:hover .tooltip {
-		top: -118px;
+		top: -132px;
 		@include media('max', 'xm') {
 			top: -130px;
 		}
