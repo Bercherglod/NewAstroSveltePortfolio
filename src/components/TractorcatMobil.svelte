@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte'
 	import { tweened } from 'svelte/motion'
 	import { quartInOut } from 'svelte/easing'
+	import { fly } from 'svelte/transition'
 
 	const leftCursor = tweened(0, {
 		duration: 1000,
@@ -211,14 +212,12 @@
 		<div
 			bind:this={offer}
 			id="offer"
-			class="min-h-[200px]"
+			class="min-h-[200px] w-[340px]"
 			style="top:{topOffer}px">
 			<div class="-left-4 relative" id="of_cont">
 				<div
 					class="-skew-x-12 blur_div absolute bg-zinc-900/20 border-amber-400 border-r-[22px] border-solid h-full inline-block my-auto text-right w-full" />
-				<div
-					class="md:pl-10 my_bold_ital p-5 pr-8 relative sm:pl-12 sm:pr-10 text-white lg:pl-48 xl:pl-80 z-10"
-					id="realH1">
+				<div class="my_bold_ital p-5 pr-8 relative  text-white z-10" id="realH1">
 					<h1 class="whitespace-nowrap text-[1rem]">
 						СРОЧНЫЙ ВЫЕЗДНОЙ<br />РЕМОНТ СПЕЦТЕХНИКИ<br /><small
 							>ПО КРАСНОДАРСКОМУ КРАЮ И РЯДОМ</small>
