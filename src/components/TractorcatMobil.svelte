@@ -5,21 +5,43 @@
 	import { quartInOut } from 'svelte/easing'
 	import { fly } from 'svelte/transition'
 
-	const leftCursor = tweened(0, {
-		duration: 1000,
-		easing: quartInOut
-	})
-	const topCursor = tweened(0, {
-		duration: 2000,
-		easing: quartInOut
-	})
+	let cx=0, cy=0, cdel=100, cdura=500, cimg='1', sumTime=1000
 
-	function handleClick() {
-		leftCursor.set(150)
+	let arrAnimPos = [
+		[200, 200, 0, 300, '2'],
+		[300, 300, 300, 300, '1'],
+		[100, 100, 400, 300, '1'],
+		[400, 200, 0, 300, '2']
+	]
+
+	function cursorPosition () {
+	arrAnimPos.forEach(el => {
 		setTimeout(() => {
-			leftCursor.set(0), topCursor.set(150)
-		}, 1000)
-	}
+		cx=el[0]
+		cy=el[1]
+		cdel=el[2]
+		cdura=el[3]
+		cimg=el[4]
+	}, sumTime+=cdura) 
+	})
+}
+	
+
+	// const leftCursor = tweened(0, {
+	// 	duration: 1000,
+	// 	easing: quartInOut
+	// })
+	// const topCursor = tweened(0, {
+	// 	duration: 2000,
+	// 	easing: quartInOut
+	// })
+
+	// function handleClick() {
+	// 	leftCursor.set(150)
+	// 	setTimeout(() => {
+	// 		leftCursor.set(0), topCursor.set(150)
+	// 	}, 1000)
+	// }
 
 	const myImageM = new Image()
 	const myImage = new Image()
@@ -32,8 +54,10 @@
 		offsetTop,
 		offsetWidth,
 		topOffer
+		
 	onMount(() => {
-		handleClick()
+		//handleClick()
+		cursorPosition ()
 		myImageM.src = '/top_bg_cat_m.webp'
 		myImage.src = '/top_bg_cat.webp'
 		if (myImage.complete) {
@@ -83,7 +107,7 @@
 	<div class="w-[360px] h-[600px] absolute z-50">
 		<div
 			class="w-[20px] h-[20px] absolute"
-			style="left:{$leftCursor}px; top:{$topCursor}px">
+			transition:fly="{{x: cx, y: cy, delay:cdel, duration: cdura, opacity:1}}">
 			<img src="/cursor.svg" />
 		</div>
 	</div>

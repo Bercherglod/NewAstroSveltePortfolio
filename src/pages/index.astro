@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import FrameAndCircle from '../components/FrameAndCircle.svelte';
 import CartMob from '../components/CartMob.svelte'
+import TestFly from '../components/TestFly.svelte'
 import '../fullpage/pageable.min.css'
 import '../styles/global.scss';
 ---
@@ -31,11 +32,12 @@ import '../styles/global.scss';
             </header>
         </div>
         </section>
-        <section data-anchor="Page 2" class="flex justify-center items-center overflow-hidden"><div class="text"><FrameAndCircle client:visible /></div></section>
-        <section data-anchor="Page 3" class="flex justify-center items-center"><div class="text"><CartMob client:load /></div></section>
-        <section data-anchor="Page 4" class="flex justify-center items-center"><div class="text"><a href="/tarctorcatmob/">TractorcatMob</a></div></section>
-        <section data-anchor="Page 4" class="flex justify-center items-center"><div class="text"><a href="/tractorcat/">Tractorcat</a></div></section>
-        <section data-anchor="Page 5" class="flex justify-center items-center"><div class="text"><div class="w-[300px] h-[300px] bg-slate-400">Tractorcat</div></div></section>
+        <section data-anchor="Page 2" class="flex justify-center items-center overflow-hidden"><div class="text"><TestFly client:visible /></div></section>
+        <section data-anchor="Page 3" class="flex justify-center items-center overflow-hidden"><div class="text"><FrameAndCircle client:visible /></div></section>
+        <section data-anchor="Page 4" class="flex justify-center items-center"><div class="text"><CartMob client:load /></div></section>
+        <section data-anchor="Page 5" class="flex justify-center items-center"><div class="text"><a href="/tarctorcatmob/">TractorcatMob</a></div></section>
+        <section data-anchor="Page 6" class="flex justify-center items-center"><div class="text"><a href="/tractorcat/">Tractorcat</a></div></section>
+        <section data-anchor="Page 7" class="flex justify-center items-center"><div class="text"><div class="w-[300px] h-[300px] bg-slate-400">Tractorcat</div></div></section>
 
     </main> 
 
