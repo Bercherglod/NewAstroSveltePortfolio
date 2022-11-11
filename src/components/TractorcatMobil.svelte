@@ -5,7 +5,12 @@
 	import { quartInOut } from 'svelte/easing'
 	import { fly } from 'svelte/transition'
 
-	let cx=0, cy=0, cdel=100, cdura=500, cimg='1', sumTime=1000
+	let cx = 0,
+		cy = 0,
+		cdel = 100,
+		cdura = 500,
+		cimg = '1',
+		sumTime = 1000
 
 	let arrAnimPos = [
 		[200, 200, 0, 300, '2'],
@@ -14,18 +19,17 @@
 		[400, 200, 0, 300, '2']
 	]
 
-	function cursorPosition () {
-	arrAnimPos.forEach(el => {
-		setTimeout(() => {
-		cx=el[0]
-		cy=el[1]
-		cdel=el[2]
-		cdura=el[3]
-		cimg=el[4]
-	}, sumTime+=cdura) 
-	})
-}
-	
+	function cursorPosition() {
+		arrAnimPos.forEach((el) => {
+			setTimeout(() => {
+				cx = el[0]
+				cy = el[1]
+				cdel = el[2]
+				cdura = el[3]
+				cimg = el[4]
+			}, (sumTime += cdura))
+		})
+	}
 
 	// const leftCursor = tweened(0, {
 	// 	duration: 1000,
@@ -54,10 +58,10 @@
 		offsetTop,
 		offsetWidth,
 		topOffer
-		
+
 	onMount(() => {
 		//handleClick()
-		cursorPosition ()
+		cursorPosition()
 		myImageM.src = '/top_bg_cat_m.webp'
 		myImage.src = '/top_bg_cat.webp'
 		if (myImage.complete) {
@@ -106,10 +110,7 @@
 <div class="w-[360px] overflow-hidden">
 	<div class="w-[360px] h-[600px] absolute z-50">
 		<div
-			class="w-[20px] h-[20px] absolute"
-			transition:fly="{{x: cx, y: cy, delay:cdel, duration: cdura, opacity:1}}">
-			<img src="/cursor.svg" />
-		</div>
+			class="w-[30px] h-[30px] absolute bg-center bg-cover cursor_animate bg-no-repeat" />
 	</div>
 	<nav
 		class="bg-gray-800  border-amber-400 border-b-4 border-solid rounded-t-lg drop-shadow-min flex flex-col  fixed justify-center  w-full z-40">
@@ -120,8 +121,8 @@
 				</div>
 			</div>
 			<div id="tel_butt">
-				<div class="parent_bg_icon">
-					<div class="-skew-x-12 bg_icon h-full relative w-full z-10" />
+				<div class="parent_bg_icon pbi1">
+					<div class="-skew-x-12 bg_icon h-full relative z-10" />
 				</div>
 				<div class="absolute z-20" id="iconTelTop">
 					<svg
@@ -129,7 +130,7 @@
 						xmlns:xlink="http://www.w3.org/1999/xlink"
 						xml:space="preserve"
 						id="Слой_1"
-						style="enable-background:new 0 0 100 100;"
+						style="enable-background:new 0 0 100 100; overflow:visible"
 						version="1.1"
 						viewbox="0 0 100 100"
 						x="0px"
@@ -144,8 +145,8 @@
 				</div>
 			</div>
 			<div id="menu_butt">
-				<div class="parent_bg_icon">
-					<div class="-skew-x-12 bg_icon h-full relative w-full z-10" />
+				<div class="parent_bg_icon  pbi2">
+					<div class="-skew-x-12 bg_icon h-full relative z-10" />
 				</div>
 				<div class="absolute z-20" id="iconMenuTop">
 					<div class="col three">
@@ -242,7 +243,7 @@
 				<div
 					class="-skew-x-12 blur_div absolute bg-zinc-900/20 border-amber-400 border-r-[22px] border-solid h-full inline-block my-auto text-right w-full" />
 				<div class="my_bold_ital p-5 pr-8 relative  text-white z-10" id="realH1">
-					<h1 class="whitespace-nowrap text-[1rem]">
+					<h1 class="whitespace-nowrap text-[18px]">
 						СРОЧНЫЙ ВЫЕЗДНОЙ<br />РЕМОНТ СПЕЦТЕХНИКИ<br /><small
 							>ПО КРАСНОДАРСКОМУ КРАЮ И РЯДОМ</small>
 					</h1>
@@ -252,7 +253,7 @@
 					class="[&_button]:hover:text-white [&_div]:hover:bg-gray-800 absolute bottom-[-53px]  right-[19px] "
 					id="of_butt">
 					<div
-						class="-skew-x-12 absolute border_ani border-gray-800 border-r-[2px] border-solid h-full right-[-1px] w-full z-20" />
+						class="-skew-x-12 absolute border_ani border-gray-800 border-r-[2px] border-solid h-full right-[-22px] w-full z-20" />
 					<div
 						class="-skew-x-12 absolute bg-amber-400 border_ani border-gray-800 border-r-[21px] border-solid h-full w-full z-10" />
 					<button
@@ -325,6 +326,103 @@
 </div>
 
 <style>
+	.cursor_animate {
+		left: 0;
+		top: 15px;
+		background-image: url(/ncursorhand.png);
+		animation: cursor-move 11.5s ease infinite;
+	}
+	@keyframes cursor-move {
+		0% {
+			left: 0;
+			top: 15px;
+		}
+		10% {
+			left: 270px;
+			top: 15px;
+		}
+		30% {
+			left: 270px;
+			top: 15px;
+		}
+		36% {
+			left: 320px;
+			top: 15px;
+		}
+		56% {
+			left: 320px;
+			top: 15px;
+		}
+		63% {
+			left: 180px;
+			top: 150px;
+			background-image: url(/ncursorhand.png);
+		}
+		63.1% {
+			left: 180px;
+			top: 150px;
+			background-image: url(/scroll.png);
+		}
+		80% {
+			left: 180px;
+			top: 150px;
+			background-image: url(/scroll.png);
+		}
+		80.1% {
+			left: 180px;
+			top: 150px;
+			background-image: url(/ncursorhand.png);
+		}
+		85% {
+			left: 0;
+			top: 15px;
+		}
+		100% {
+			left: 0;
+			top: 15px;
+		}
+	}
+
+	.bg-my_bg {
+		animation: bg-my_bg 11.5s ease infinite;
+	}
+	#offer {
+		animation: offer 11.5s ease infinite;
+	}
+	.brand {
+		animation: bg-my_bg 11.5s ease infinite;
+	}
+	@keyframes bg-my_bg {
+		0% {
+		}
+		63% {
+			transform: translateY(0px);
+		}
+		73% {
+			transform: translateY(-165px);
+		}
+		80% {
+			transform: translateY(0px);
+		}
+		100% {
+		}
+	}
+	@keyframes offer {
+		0% {
+		}
+		63% {
+			transform: translateY(0px);
+		}
+		73% {
+			transform: translateY(165px);
+		}
+		80% {
+			transform: translateY(0px);
+		}
+		100% {
+		}
+	}
+
 	.transition {
 		transition: 2s;
 		backdrop-filter: blur(0px);
