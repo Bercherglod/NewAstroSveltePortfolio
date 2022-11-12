@@ -1,3 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    .text_gradient {
+      @apply from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent;
+    }
+    .text_gradient_с {
+        @apply from-blue-300  via-pink-300 to-purple-200 bg-gradient-to-r bg-clip-text text-transparent;
+      }
+  }
+
+
 $sizes: (
     'xs': 360px,
     'xm': 640px,

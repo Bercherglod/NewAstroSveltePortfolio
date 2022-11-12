@@ -51,7 +51,10 @@
 </script>
 
 <IntersectionObserver {element} bind:intersecting threshold={1}>
-	<div bind:this={element} bind:clientWidth={contWidth} class="w-full">
+	<div
+		bind:this={element}
+		bind:clientWidth={contWidth}
+		class="w-full flex flex-col">
 		<Frame bind:frameLoad />
 		<h1
 			class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">

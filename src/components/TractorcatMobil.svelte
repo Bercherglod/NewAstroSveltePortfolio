@@ -57,7 +57,8 @@
 		offsetHeight,
 		offsetTop,
 		offsetWidth,
-		topOffer
+		topOffer,
+		scaleFrame
 
 	onMount(() => {
 		//handleClick()
@@ -231,7 +232,7 @@
 	<div class="h-[52px]" />
 	<div
 		bind:this={topImage}
-		class="bg-gray-800 bg-center bg-cover bg-my_bg bg-no-repeat  flex items-center  h-[50vh] w-full "
+		class="bg-gray-800 h-[490px] bg-center bg-cover bg-my_bg bg-no-repeat  flex items-center  w-full "
 		style="background-image:url(/top_bg_cat.webp)">
 		<div class="backdrop-blur-sm h-[70vh]  w-full  " id="bgBlur" />
 		<div
