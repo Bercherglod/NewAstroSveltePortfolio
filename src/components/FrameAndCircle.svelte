@@ -50,107 +50,109 @@
 	}
 </script>
 
-<IntersectionObserver {element} bind:intersecting threshold={1}>
-	<div class="w-full h-[100vh]  flex flex-col justify-evenly">
-		<div bind:this={element} bind:clientWidth={contWidth} class="h-[60vh]">
-			<Frame bind:frameLoad />
-		</div>
+<div class="w-full h-[100vh]  flex flex-col justify-evenly">
+	<div class="h-[60vh]">
+		<Frame bind:frameLoad />
+	</div>
+	<IntersectionObserver {element} bind:intersecting threshold={1}>
 		<h1
+			bind:this={element}
+			bind:clientWidth={contWidth}
 			class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
 			Создаю сайты на максималках!
 		</h1>
-		<div
-			id="grid-circle"
-			class="w-full grid grid-cols-2 xm:grid-cols-3 sm:grid-cols-6 gap-2 xm:gap-4 pt-3 ">
-			<div>
-				<Circle startsCircle={arrStartsCircle[0]} />
-				<div class="wrapper">
-					<div class="icon blue">
-						<span bind:this={tooltipLeft} class="tooltip">
-							Быстрые сайты любят пользователи и поисковики. Анализирует скорость
-							отклика сервера, отрисовка стилей, загрузки шрифтов и контента.</span
-						><span class="before" />
-						<div class="header text-center text-base text-white">Performance</div>
-					</div>
+	</IntersectionObserver>
+	<div
+		id="grid-circle"
+		class="w-full grid grid-cols-2 xm:grid-cols-3 sm:grid-cols-6 gap-2 xm:gap-4 pt-3 ">
+		<div>
+			<Circle startsCircle={arrStartsCircle[0]} />
+			<div class="wrapper">
+				<div class="icon blue">
+					<span bind:this={tooltipLeft} class="tooltip">
+						Быстрые сайты любят пользователи и поисковики. Анализирует скорость
+						отклика сервера, отрисовка стилей, загрузки шрифтов и контента.</span
+					><span class="before" />
+					<div class="header text-center text-base text-white">Performance</div>
 				</div>
 			</div>
-			<div>
-				<Circle startsCircle={arrStartsCircle[1]} />
-				<div class="wrapper">
-					<div class="icon blue">
-						<span class="tooltip">
-							Проверяет безопасность сайта и использование современных стандартов
-							веб-разработки.</span
-						><span class="before" />
-						<div class="header text-center text-base text-white">Best Practices</div>
-					</div>
+		</div>
+		<div>
+			<Circle startsCircle={arrStartsCircle[1]} />
+			<div class="wrapper">
+				<div class="icon blue">
+					<span class="tooltip">
+						Проверяет безопасность сайта и использование современных стандартов
+						веб-разработки.</span
+					><span class="before" />
+					<div class="header text-center text-base text-white">Best Practices</div>
 				</div>
 			</div>
-			<div>
-				<Circle startsCircle={arrStartsCircle[2]} />
-				<div class="wrapper">
-					<div class="icon blue">
-						<span class="tooltip">
-							Оценка зависит от понятности и воспринимаемости контента, возможности
-							управлять интерфейсом.</span
-						><span class="before" />
-						<div class="header text-center text-base text-white">Accessibility</div>
-					</div>
+		</div>
+		<div>
+			<Circle startsCircle={arrStartsCircle[2]} />
+			<div class="wrapper">
+				<div class="icon blue">
+					<span class="tooltip">
+						Оценка зависит от понятности и воспринимаемости контента, возможности
+						управлять интерфейсом.</span
+					><span class="before" />
+					<div class="header text-center text-base text-white">Accessibility</div>
 				</div>
 			</div>
-			<div>
-				<Circle startsCircle={arrStartsCircle[3]} />
-				<div class="wrapper">
-					<div class="icon blue">
-						<span class="tooltip">
-							Оценивает соответствие страницы поисковой оптимизации, адаптацию для
-							мобильных устройств.
-						</span><span class="before" />
-						<div class="header text-center text-base text-white">SEO</div>
-					</div>
+		</div>
+		<div>
+			<Circle startsCircle={arrStartsCircle[3]} />
+			<div class="wrapper">
+				<div class="icon blue">
+					<span class="tooltip">
+						Оценивает соответствие страницы поисковой оптимизации, адаптацию для
+						мобильных устройств.
+					</span><span class="before" />
+					<div class="header text-center text-base text-white">SEO</div>
 				</div>
 			</div>
-			<div class="hidden xm:block">
-				<div
-					class="circle_center rounded-full bg-slate-700/[0.2]  mx-auto flex justify-center items-center">
-					<div class=" rounded-full bg-white flex justify-center items-center">
-						<img src="/pwa.svg" />
-					</div>
+		</div>
+		<div class="hidden xm:block">
+			<div
+				class="circle_center rounded-full bg-slate-700/[0.2]  mx-auto flex justify-center items-center">
+				<div class=" rounded-full bg-white flex justify-center items-center">
+					<img src="/pwa.svg" />
 				</div>
+			</div>
 
-				<div class="wrapper">
-					<div class="icon blue">
-						<span class="tooltip">
-							Трансформирует сайт в приложение. При этом полностью сохраняется
-							функциональность нативного приложения.
-						</span><span class="before" />
-						<div class="header text-center text-base text-white">PWA</div>
-					</div>
+			<div class="wrapper">
+				<div class="icon blue">
+					<span class="tooltip">
+						Трансформирует сайт в приложение. При этом полностью сохраняется
+						функциональность нативного приложения.
+					</span><span class="before" />
+					<div class="header text-center text-base text-white">PWA</div>
 				</div>
 			</div>
-			<div class="hidden xm:block">
-				<div
-					class="circle_center  rounded-full bg-slate-700/[0.2] mx-auto flex justify-center items-center">
-					<div class="rounded-full bg-white flex justify-center items-center">
-						<img src="/webdev.svg" width="35" />
-					</div>
+		</div>
+		<div class="hidden xm:block">
+			<div
+				class="circle_center  rounded-full bg-slate-700/[0.2] mx-auto flex justify-center items-center">
+				<div class="rounded-full bg-white flex justify-center items-center">
+					<img src="/webdev.svg" width="35" />
 				</div>
-				<div class="wrapper">
-					<div class="icon blue">
-						<div class="tooltip">
-							Протестируйте этот сайт в лабораторной среде с помощью <a
-								href="https://web.dev/measure/?url=https%3A%2F%2Ftractorcat.ru"
-								class="contents text-blue-300">PageSpeed ​Insights</a
-							>.
-						</div>
-						<span class="before" />
-						<div class="header text-center text-base text-white">WebDev</div>
+			</div>
+			<div class="wrapper">
+				<div class="icon blue">
+					<div class="tooltip">
+						Протестируйте этот сайт в лабораторной среде с помощью <a
+							href="https://web.dev/measure/?url=https%3A%2F%2Ftractorcat.ru"
+							class="contents text-blue-300">PageSpeed ​Insights</a
+						>.
 					</div>
+					<span class="before" />
+					<div class="header text-center text-base text-white">WebDev</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</IntersectionObserver>
+</div>
 
 <style lang="scss">
 	@import '../styles/global.scss';
