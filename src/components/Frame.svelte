@@ -8,6 +8,8 @@
 		frameWidth,
 		parentFrame,
 		parentFrameWidth,
+		parentFrameHeight,
+		frameSetHeight,
 		timeoutScale,
 		scrollIcon,
 		divBlur,
@@ -45,8 +47,8 @@
 		} else {
 			frameSetWidth = 1200
 		}
+		frameSetHeight = (frameSetWidth * parentFrameHeight) / parentFrameWidth
 		scaleFrame = scF
-		ifrm.style.display = 'none'
 	}
 
 	function timerToScale() {
@@ -66,18 +68,19 @@
 		ifrm.src = '/tractorcat/'
 		document.body.appendChild(ifrm)
 		ifrm.addEventListener('load', () => {
+			document.body.removeChild(ifrm)
 			frameSrc = '/tractorcat/'
 			frameLoad = true
 		})
 	}
 </script>
 
-<div
-	class="w-[100vw] aspect-[2/1]  xm:h-auto xm:aspect-[16/7] flex flex-col text-center ">
+<div class="w-[100vw]">
 	<div
 		bind:this={parentFrame}
 		bind:clientWidth={parentFrameWidth}
-		class="parentFrame w-full aspect-[2/1] xm:h-auto xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px] xm:aspect-[16/7] m-auto border-orange-200 border-solid border-t-2 border-b-2  xm:border-none">
+		bind:clientHeight={parentFrameHeight}
+		class="parentFrame w-full  h-[60vh] xm:w-[600px] sm:w-[900px] lg:w-[1200px] xl:w-[1500px] xl2:w-[1800px] m-auto border-orange-200 border-solid border-t-2 border-b-2  xm:border-none">
 		<div
 			bind:this={scrollIcon}
 			class="scroll-icon absolute top-[50%] left-[50%] ml-[-6px] mt-[-43px] hidden">
@@ -95,10 +98,11 @@
 			on:focus={handleMouseover}
 			on:blur={handleMouseout}
 			src={frameSrc}
-			allow="fullscreen"
 			width={frameSetWidth}
+			height={frameSetHeight}
+			allow="fullscreen"
 			title="tractorcat"
-			class="absolute aspect-[2/1] xm:h-auto xm:aspect-[16/7] xm:rounded-3xl xm:shadow-2xl xm:border-solid xm:border-[4px]"
+			class="absolute xm:rounded-3xl xm:shadow-2xl xm:border-solid xm:border-[4px]"
 			style="transform: scale({scaleFrame}); transform-origin: 0px 0px;" />
 	</div>
 </div>

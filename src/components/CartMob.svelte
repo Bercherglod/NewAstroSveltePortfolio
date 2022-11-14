@@ -50,24 +50,24 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="w-[100vw] flex flex-col xm:flex-row justify-evenly items-center">
-	<div class="h-[20vh]  overflow-hidden sm:hidden lg:block">
+	<div class="xm:hidden lg:block">
 		{#if node2}
 			<ul
-				class="ltext relative top-0 text-left lg:text-right my_font_fam   text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold text-white">
+				class="ltext relative top-0 text-left lg:text-right my_font_fam text-[1.4rem] xm:text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold text-white">
 				<li
-					class="py-1 lg:py-5 sm:block lg:hidden"
+					class="py-0 xm:py-1 lg:py-5 sm:hidden lg:block"
 					transition:blur={{ duration: 400, delay: 0, easing: cubicIn }}>
 					<span
 						class=" from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent"
 						>АДАПТИВНЫЙ</span>
 				</li>
 				<li
-					class="py-1 lg:py-5 sm:block lg:hidden"
+					class="py-0 xm:py-1 lg:py-5  sm:hidden lg:block"
 					transition:blur={{ duration: 400, delay: 400, easing: cubicIn }}>
 					<span class="text_gradient">UX/UI ДИЗАЙН</span>
 				</li>
 				<li
-					class="py-1 lg:py-5 sm:block  lg:hidden"
+					class="py-0 xm:py-1 lg:py-5  sm:hidden lg:block"
 					transition:blur={{ duration: 400, delay: 800, easing: cubicIn }}>
 					<span class="text_gradient">КАЧЕСТВЕННОЕ SEO</span>
 				</li>
@@ -105,39 +105,39 @@ text-shadow: {-text_shadow_x}px {text_shadow_y / 1}px 6px rgba(0, 0, 0, .8)">
 			</div>
 		</div>
 	</IntersectionObserver>
-	<div class="h-[20vh]  overflow-hidden" bind:this={node}>
+	<div class="" bind:this={node}>
 		{#if node2}
 			<ul
-				class="ltext my_font_fam  text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold flex flex-col justify-evenly items-right">
+				class="ltext my_font_fam text-[1.4rem] xm:text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold flex flex-col justify-evenly items-right">
 				<li
-					class="py-5 hidden sm:block lg:hidden"
+					class="py-5 hidden xm:block lg:hidden"
 					transition:blur={{ duration: 400, delay: 0, easing: cubicIn }}>
 					<span
 						class=" from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent"
 						>АДАПТИВНЫЙ</span>
 				</li>
 				<li
-					class="py-5 hidden sm:block lg:hidden"
+					class="py-5 hidden xm:block lg:hidden"
 					transition:blur={{ duration: 400, delay: 400, easing: cubicIn }}>
 					<span class="text_gradient">UX/UI ДИЗАЙН</span>
 				</li>
 				<li
-					class="py-5 hidden sm:block  lg:hidden"
+					class="py-5 hidden xm:block  lg:hidden"
 					transition:blur={{ duration: 400, delay: 800, easing: cubicIn }}>
 					<span class="text_gradient">КАЧЕСТВЕННОЕ SEO</span>
 				</li>
 				<li
-					class="py-1 sm:py-5"
+					class="py-0 xm:py-5"
 					transition:blur={{ duration: 400, delay: 1200, easing: cubicIn }}>
 					<span class="text_gradient_с">CND - РАЗМЕЩЕНИЕ</span>
 				</li>
 				<li
-					class="py-1 sm:py-5"
+					class="py-0 xm:py-5"
 					transition:blur={{ duration: 400, delay: 1600, easing: cubicIn }}>
 					<span class="text_gradient_с">SSG - ПОДХОД</span>
 				</li>
 				<li
-					class="py-1 sm:py-5"
+					class="py-0 xm:py-5"
 					transition:blur={{ duration: 400, delay: 2000, easing: cubicIn }}>
 					<span class="text_gradient_с">ПРОДАЮЩИЙ</span>
 				</li>
