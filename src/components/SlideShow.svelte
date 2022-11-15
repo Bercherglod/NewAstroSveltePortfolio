@@ -11,7 +11,7 @@
 	let parentFrameWidth
 </script>
 
-<div bind:clientWidth={parentFrameWidth} class="w-[100vh]">
+<div bind:clientWidth={parentFrameWidth} class="w-[100vw]">
 	<Swiper
 		modules={[Navigation, Pagination, A11y]}
 		spaceBetween={50}
@@ -29,10 +29,3 @@
 		<SwiperSlide><img src="/images/tractorcat_end.jpg" /></SwiperSlide>
 	</Swiper>
 </div>
-
-<style>
-	.swiper {
-		width: 600px;
-		height: 300px;
-	}
-</style>
