@@ -3,9 +3,44 @@ import Layout from '../layouts/Layout.astro';
 import FrameAndCircle from '../components/FrameAndCircle.svelte';
 import CartMob from '../components/CartMob.svelte'
 import SlideShow from '../components/SlideShow.svelte';
+import Other from '../components/Other.svelte';
 import '../fullpage/pageable.min.css'
 import '../styles/global.scss';
+
+
+
 ---
+<script>
+const popX = document.querySelector("#popupX"),
+  popupButton = document.querySelector("#popupButton"),
+  popupForm = document.querySelector("#popupForm"),
+  popupBg = document.querySelector("#popupBg")
+function toggleHidden() {
+  popupForm.classList.toggle("hidden");
+}
+popupButton.addEventListener("click", () => toggleHidden())
+popX.addEventListener("click", () => toggleHidden())
+popupBg.addEventListener("click", () => toggleHidden())
+
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+  
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => myForm.querySelector('.submit_text').textContent = 'Форма успешно отправленна')
+    .catch((error) => myForm.querySelector('#submit_text').textContent = 'Ошибка');
+};
+
+document.querySelector("form").addEventListener("submit", handleSubmit);
+
+</script>
 
 
 <Layout title="Portfolio">
@@ -26,7 +61,7 @@ import '../styles/global.scss';
                     <div class="flex  p-4 justify-evenly xm:justify-start items-center">
                         <a href="https://wa.me/+79604833420"><div class="w-[60px] h-[60px] bg-white rounded-full mr-3 flex justify-center items-center overflow-hidden cursor-pointer"><img src="/whatsapp.svg" /></div></a>
                         <a href="https://telegram.me/bercherglod"><div class="w-[60px] h-[60px] bg-white rounded-full mr-3 flex justify-center items-center cursor-pointer"><img src="/telega.svg"width="42"/></div></a>
-                        <a href="mailto:bercherglod@gmail.com"><div class="w-[60px] h-[60px] bg-white rounded-full flex justify-center items-center cursor-pointer"><img src="/gmail.svg" width="40"/></div></a>
+                        <div id='popupButton'><div class="w-[60px] h-[60px] bg-white rounded-full flex justify-center items-center cursor-pointer"><img src="/gmail.svg" width="40"/></div></div>
                     </div>
                 </div>
             </header>
@@ -37,10 +72,118 @@ import '../styles/global.scss';
         <section data-anchor="Page 4" class="flex justify-center items-center"><div class="text">
         <SlideShow client:load/>
         </div></section>
-        <section data-anchor="Page 5" class="flex justify-center items-center"><div class="text"><a href="/tractorcatmob/">TractorcatMob</a></div></section>
-        <section data-anchor="Page 5" class="flex justify-center items-center"><div class="text"><a href="/tractorcat/">Tractorcat</a></div></section>
-        <section data-anchor="Page 6 " class="flex justify-center items-center"><div class="text"><div class="w-[300px] h-[300px] bg-slate-400">Tractorcat</div></div></section>
-
+        <section data-anchor="Page 5" class="flex justify-center items-center"><div class="text">
+            <Other client:load/>
+            </div></section>
+        <section data-anchor="Page 7 " class="flex justify-center items-center"><div class="text">
+            <p class="text-3xl xm:text-4xl sm:text-4xl text-center p-4 font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
+                Обращайтесь!
+            </p>
+            <div class="w-full xm:w-[400px] mx-auto z-50">
+                <div class="pl-6 pr-6 pt-6 pb-1 border border-gray-300 bg-white sm:rounded-md">
+                  <form method="POST" data-netlify="true">
+                    <label class="block mb-6">
+                      <span class="text-gray-700">Ваше имя</span>
+                      <input
+                        type="text"
+                        name="name"
+                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        placeholder="" />
+                    </label>
+                    <label class="block mb-6">
+                      <span class="text-gray-700">Email</span>
+                      <input
+                        name="email"
+                        type="email"
+                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        placeholder="email@gmail.com"
+                        required />
+                    </label>
+                    <label class="block mb-6">
+                      <span class="text-gray-700">Сообщение</span>
+                      <textarea
+                        name="message"
+                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        rows="3"
+                        placeholder=""></textarea>
+                    </label>
+                    <div class="my-3 text-green-500 text-center submit_text"></div>
+                    <div class="mb-6 text-right">
+                      <button
+                        type="submit"
+                        class="h-10 px-8  text-slate-100 bg-slate-400 rounded-lg transition-colors duration-150 focus:shadow-outline hover:bg-slate-600">
+                        ОТПРАВИТЬ
+                      </button>
+                    </div>
+                  </form>
+                </div>
+          </div></div></section>
+        
+<section class="hidden" id="popupForm"><div class="fixed flex h-full items-center justify-center shadow-md top-0 w-full z-50" >
+    <div class="bg-gray-900 bg-opacity-80 fixed h-full sticky-0 top-0 w-full z-40" id="popupBg"></div>
+    <div class="w-full xm:w-[400px] mx-auto z-50">
+        <div class="pl-6 pr-6 pt-6 pb-1 border border-gray-300 bg-white sm:rounded-md">
+          <form method="POST" data-netlify="true">
+            <label class="block mb-6">
+              <span class="text-gray-700">Ваше имя</span>
+              <input
+                type="text"
+                name="name"
+                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder="" />
+            </label>
+            <label class="block mb-6">
+              <span class="text-gray-700">Email</span>
+              <input
+                name="email"
+                type="email"
+                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder="email@gmail.com"
+                required />
+            </label>
+            <label class="block mb-6">
+              <span class="text-gray-700">Сообщение</span>
+              <textarea
+                name="message"
+                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                rows="3"
+                placeholder="Коротко расскажите какой сайт вам нужен."></textarea>
+            </label>
+            <div class="my-3 text-green-500 text-center submit_text"></div>
+            <div class="mb-6 text-right">
+              <button
+                type="submit"
+                class="h-10 px-8  text-slate-100 bg-slate-400 rounded-lg transition-colors duration-150 focus:shadow-outline hover:bg-slate-600">
+                ОТПРАВИТЬ
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <button
+      aria-label="close"
+      class="absolute dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-offset-2 right-2 text-gray-400 top-2 z-[999]"
+      id="popupX">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24">
+        <path
+          d="M18 6L6 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.66667"></path>
+        <path
+          d="M6 6L18 18"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.66667"></path>
+      </svg>
+    </button></div></section>
     </main> 
 
 

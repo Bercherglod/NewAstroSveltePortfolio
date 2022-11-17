@@ -4,6 +4,7 @@
 	import { tweened } from 'svelte/motion'
 	import { quartInOut } from 'svelte/easing'
 	import { fly } from 'svelte/transition'
+	import '../styles/global.scss'
 
 	let cx = 0,
 		cy = 0,
@@ -161,17 +162,20 @@
 		<div
 			class="bg-amber-400 flex flex-col italic justify-evenly md:hidden my_bold text-[1.6rem] text-center text-gray-800"
 			id="menuTop">
-			<a class="h-full hover:text-amber-400  my-auto px-2 w-full" href="/#why_us"
-				>Почему мы?</a
-			><a class="h-full hover:text-amber-400 my-auto px-2 w-full" href="/#prise"
-				>Цены</a
-			><a class="h-full hover:text-amber-400 my-auto px-2 w-full" href="/#contacts"
-				>Контакты</a>
+			<a
+				class="h-full hover:text-amber-400 text-gray-800 my-auto px-2 w-full  text-[1.6rem]"
+				href="/#why_us">Почему мы?</a
+			><a
+				class="h-full hover:text-amber-400 text-gray-800 my-auto px-2 w-full  text-[1.6rem]"
+				href="/#prise">Цены</a
+			><a
+				class="h-full hover:text-amber-400 text-gray-800 my-auto px-2 w-full  text-[1.6rem]"
+				href="/#contacts">Контакты</a>
 		</div>
 		<div class="bg-amber-400 col md:hidden text-gray-800" id="telMenuTop">
 			<div class="flex flex-row justify-evenly">
 				<a
-					class="align-middle grow inline-block items-center leading-[0.6] my_bold_ital pr-2 tel  text-[1.6rem]"
+					class="align-middle grow inline-block items-center my_bold_ital pr-2 tel  text-[1.6rem] text-gray-800"
 					href="tel:+79183789210">+7 918 37 89 210</a
 				><a
 					class="col m-0 p-0 whattapp"
@@ -200,7 +204,7 @@
 			</div>
 			<div class="flex flex-row justify-evenly">
 				<a
-					class="align-middle grow inline-block items-center leading-[0.6] my_bold_ital pr-2 tel  text-[1.6rem]"
+					class="align-middle grow inline-block items-center leading-[0.6] my_bold_ital pr-2 tel  text-[1.6rem] text-gray-800"
 					href="tel:+79180944607">+7 918 09 44 607</a
 				><a
 					class="col m-0 p-0 whattapp"
