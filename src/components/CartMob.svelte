@@ -49,11 +49,12 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<div class="w-[100vw] flex flex-col xm:flex-row justify-evenly items-center">
+<div
+	class="w-[100vw] h-[80vh] flex flex-col xm:flex-row justify-center xm:justify-evenly items-center">
 	<div class="xm:hidden lg:block">
 		{#if node2}
 			<ul
-				class="ltext relative top-0 text-left lg:text-right my_font_fam text-[1.4rem] xm:text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold text-white">
+				class="ltext relative top-0 text-left lg:text-right my_font_fam text-base xm:text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold text-white">
 				<li
 					class="py-0 xm:py-1 lg:py-5 sm:hidden lg:block"
 					transition:blur={{ duration: 400, delay: 0, easing: cubicIn }}>
@@ -83,7 +84,7 @@
 		<div
 			bind:this={mouseMove}
 			id="floating"
-			class="rounded-lg h-[60vh] grid content-center mouse_move transform-gpu"
+			class="rounded-lg h-[50vh] grid content-center mouse_move transform-gpu"
 			style="transform: scale({scaleMob}); color:red;">
 			<div
 				bind:clientWidth={mobWidth}
@@ -98,7 +99,8 @@ text-shadow: {-text_shadow_x}px {text_shadow_y / 1}px 6px rgba(0, 0, 0, .8)">
 				<div class="thickness" />
 				<div class="thickness" />
 				<div class="w-full h-full rounded-lg  overflow-hidden">
-					<div class="w-[360px] h-[600px] rounded-lg bg-orange-600 overflow-hidden">
+					<div
+						class="xm:w-[360px] xm:h-[600px] rounded-lg bg-orange-600 overflow-hidden">
 						<TractorcatMob />
 					</div>
 				</div>
@@ -108,7 +110,7 @@ text-shadow: {-text_shadow_x}px {text_shadow_y / 1}px 6px rgba(0, 0, 0, .8)">
 	<div class="" bind:this={node}>
 		{#if node2}
 			<ul
-				class="ltext my_font_fam text-[1.4rem] xm:text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold flex flex-col justify-evenly items-right">
+				class="ltext my_font_fam text-base xm:text-[1.6rem] sm:text-[2.2rem]  p-4 font-bold flex flex-col justify-evenly items-right">
 				<li
 					class="py-5 hidden xm:block lg:hidden"
 					transition:blur={{ duration: 400, delay: 0, easing: cubicIn }}>

@@ -11,7 +11,7 @@
 	let parentFrameWidth
 </script>
 
-<div class="w-[100vw] h-[100vh]">
+<div class="w-[100vw] h-[60vh] xm:h-[100vh]">
 	<Swiper
 		modules={[Navigation, Pagination, A11y]}
 		spaceBetween={0}
@@ -20,9 +20,9 @@
 		pagination={{ clickable: true, dynamicBullets: true }}
 		on:slideChange={() => console.log('slide change')}
 		on:swiper={(e) => console.log(e.detail[0])}
-		class="w-[100vw] h-[100vh]">
+		class="w-[100vw] h-[70vh] xm:h-[100vh] py-10">
 		<SwiperSlide>
-			<div class="w-[100vw] h-[100vh] grid ">
+			<div class="w-[100vw] h-[60vh] xm:h-[100vh] grid ">
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
 					<img src="/other/enjoyment.svg" />
@@ -49,7 +49,7 @@
 				</div>
 				<div class="grid">
 					<h1
-						class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold text-white">
+						class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 						А еще <br />создаю<br /> логотипы
 					</h1>
 				</div>
@@ -74,7 +74,7 @@
 				</div>
 			</div></SwiperSlide>
 		<SwiperSlide>
-			<div class="w-[100vw] h-[100vh] grid ">
+			<div class="w-[100vw] h-[60vh] xm:h-[100vh] grid ">
 				<div class="grid bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
 				<div
 					class="grid bg-[url('/other/3d/rotunda_01.webp')] bg-cover bg-center" />
@@ -87,7 +87,7 @@
 				<div class="grid bg-[url('/other/3d/kalinina.webp')] bg-cover bg-center" />
 				<div class="grid">
 					<h1
-						class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold text-white">
+						class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 						Могу <br />в 3d
 					</h1>
 				</div>
@@ -99,7 +99,7 @@
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
-			<div class="w-[100vw] h-[100vh] grid ">
+			<div class="w-[100vw] h-[60vh] xm:h-[100vh] grid ">
 				<div class="grid bg-[url('/other/other/03.webp')] bg-cover bg-center" />
 				<div class="grid bg-[url('/other/other/01.webp')] bg-cover bg-center" />
 				<div class="grid bg-[url('/other/other/04.webp')] bg-cover bg-center" />
@@ -108,7 +108,7 @@
 				<div class="grid bg-[url('/other/other/07.webp')] bg-cover bg-center" />
 				<div class="grid">
 					<h1
-						class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold text-white">
+						class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 						Рисую<br /> Скульпчу<br /> Проектирую
 					</h1>
 				</div>

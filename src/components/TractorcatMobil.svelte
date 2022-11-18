@@ -1,5 +1,4 @@
 <script>
-	import '../styles/global.scss'
 	import { onMount } from 'svelte'
 	import { tweened } from 'svelte/motion'
 	import { quartInOut } from 'svelte/easing'
@@ -115,7 +114,7 @@
 			class="w-[30px] h-[30px] absolute bg-center bg-cover cursor_animate bg-no-repeat" />
 	</div>
 	<nav
-		class="bg-gray-800  border-amber-400 border-b-4 border-solid rounded-t-lg drop-shadow-min flex flex-col  fixed justify-center  w-full z-40">
+		class="bg-gray-800  border-amber-400 border-b-4 border-solid rounded-t-lg drop-shadow-min flex flex-col  absolute justify-center  w-full z-40">
 		<div class="basis-full flex flex-row justify-evenly w-full max-w-6xl">
 			<div class="grow my-auto">
 				<div class=" my-auto new_black_w64 text-[1.6rem] pl-3 text-amber-400">
@@ -249,7 +248,7 @@
 					class="-skew-x-12 blur_div absolute bg-zinc-900/20 border-amber-400 border-r-[22px] border-solid h-full inline-block my-auto text-right w-full" />
 				<div class="my_bold_ital p-5 pr-8 relative  text-white z-10" id="realH1">
 					<h1 class="whitespace-nowrap text-[18px]">
-						СРОЧНЫЙ ВЫЕЗДНОЙ<br />РЕМОНТ СПЕЦТЕХНИКИ<br /><small
+						СРОЧНЫЙ ВЫЕЗДНОЙ<br />РЕМОНТ СПЕЦТЕХНИКИ<br /><small class="text-[13px]"
 							>ПО КРАСНОДАРСКОМУ КРАЮ И РЯДОМ</small>
 					</h1>
 				</div>
@@ -258,7 +257,7 @@
 					class="[&_button]:hover:text-white [&_div]:hover:bg-gray-800 absolute bottom-[-53px]  right-[19px] "
 					id="of_butt">
 					<div
-						class="-skew-x-12 absolute border_ani border-gray-800 border-r-[2px] border-solid h-full right-[-22px] w-full z-20" />
+						class="-skew-x-12 absolute border_ani border-gray-800 border-r-[2px] border-solid h-full right-[-1px] w-full z-20" />
 					<div
 						class="-skew-x-12 absolute bg-amber-400 border_ani border-gray-800 border-r-[21px] border-solid h-full w-full z-10" />
 					<button

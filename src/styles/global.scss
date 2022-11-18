@@ -32,9 +32,11 @@
   
 
 
+
 /* swiper */
 .swiper {
 //border-radius: 1.5rem;
+
 }
 
 
@@ -235,9 +237,12 @@
     left:0 !important;
     transform: translateX(0) !important;
      }
-     
-
 }
+@media screen and (max-width: 640px) {
+    .swiper-pagination {
+       bottom: -22px !important;
+    }
+ }
 /* text content */
 
 .slide-text {
@@ -373,7 +378,7 @@ $sizes: (
 }
 .parent_bg_icon, .pbi1, .pbi2 {
     height: 0;
-    width: 48px;
+    width: 60px;
     left: -5px;
     margin-left: -1px;
     padding-right: 7px;

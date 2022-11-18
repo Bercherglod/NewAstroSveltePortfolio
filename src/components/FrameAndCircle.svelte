@@ -21,6 +21,7 @@
 	const arrStartsCircle = [false, false, false, false]
 	onMount(() => {
 		tooltip = document.querySelectorAll('.tooltip')
+		repositionTooltipLeft()
 	})
 	function startsCircles() {
 		for (let i = 0; i < arrStartsCircle.length; i++) {
@@ -30,7 +31,6 @@
 		}
 	}
 	function repositionTooltipLeft() {
-		console.log('repositionTooltipLeft')
 		if (timeoutRePos) clearTimeout(timeoutRePos)
 		var windowPositionRight =
 			window.pageXOffset + document.documentElement.clientWidth
@@ -50,15 +50,15 @@
 	}
 </script>
 
-<div class="w-full h-[100vh]  flex flex-col justify-evenly">
-	<div class="h-[60vh]">
+<div class="w-full h-[90vh]  flex flex-col justify-center xm:justify-evenly">
+	<div class="h-[40vh] xm:h-[60vh]">
 		<Frame bind:frameLoad />
 	</div>
 	<IntersectionObserver {element} bind:intersecting threshold={1}>
 		<h1
 			bind:this={element}
 			bind:clientWidth={contWidth}
-			class="w-full text-3xl xm:text-4xl sm:text-4xl text-center font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
+			class="w-[full] text-xl xm:text-4xl sm:text-4xl text-center font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
 			Создаю сайты на максималках!
 		</h1>
 	</IntersectionObserver>
@@ -73,7 +73,7 @@
 						Быстрые сайты любят пользователи и поисковики. Анализирует скорость
 						отклика сервера, отрисовка стилей, загрузки шрифтов и контента.</span
 					><span class="before" />
-					<div class="header text-center text-base text-white">Performance</div>
+					<div class="header text-center text-[17px] text-white">Performance</div>
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
 						Проверяет безопасность сайта и использование современных стандартов
 						веб-разработки.</span
 					><span class="before" />
-					<div class="header text-center text-base text-white">Best Practices</div>
+					<div class="header text-center text-[17px] text-white">Best Practices</div>
 				</div>
 			</div>
 		</div>
@@ -97,7 +97,7 @@
 						Оценка зависит от понятности и воспринимаемости контента, возможности
 						управлять интерфейсом.</span
 					><span class="before" />
-					<div class="header text-center text-base text-white">Accessibility</div>
+					<div class="header text-center text-[17px] text-white">Accessibility</div>
 				</div>
 			</div>
 		</div>
@@ -109,7 +109,7 @@
 						Оценивает соответствие страницы поисковой оптимизации, адаптацию для
 						мобильных устройств.
 					</span><span class="before" />
-					<div class="header text-center text-base text-white">SEO</div>
+					<div class="header text-center text-[17px] text-white">SEO</div>
 				</div>
 			</div>
 		</div>
@@ -246,9 +246,9 @@
 	}
 
 	.wrapper .icon:hover .tooltip {
-		top: -132px;
+		top: -123px;
 		@include media('max', 'xm') {
-			top: -130px;
+			top: -120px;
 		}
 		opacity: 1;
 		visibility: visible;

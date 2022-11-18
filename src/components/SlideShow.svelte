@@ -12,8 +12,7 @@
 	let parentFrameWidth
 </script>
 
-<div
-	class="w-[100vw] h-[60vh] sm:h-[auto] sm:w-[90vw] xl2:w-[1600px] overflow-hidden">
+<div class="w-[100vw]  sm:h-[auto] sm:w-[90vw] xl2:w-[1600px] overflow-hidden">
 	<Swiper
 		modules={[Navigation, Pagination, A11y]}
 		spaceBetween={0}
@@ -22,7 +21,7 @@
 		pagination={{ clickable: true, dynamicBullets: true }}
 		on:slideChange={() => console.log('slide change')}
 		on:swiper={(e) => console.log(e.detail[0])}
-		class="sm:rounded-3xl w-[100vh]  sm:w-full">
+		class="sm:rounded-3xl h-[58vh] w-[140vw] sm:h-[auto] sm:w-full">
 		<SwiperSlide
 			><div class="slide-text btn ">
 				<h1>Ремонт спецтехники</h1>
