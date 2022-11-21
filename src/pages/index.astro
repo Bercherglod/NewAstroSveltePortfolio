@@ -4,6 +4,7 @@ import FrameAndCircle from '../components/FrameAndCircle.svelte';
 import CartMob from '../components/CartMob.svelte'
 import SlideShow from '../components/SlideShow.svelte';
 import Other from '../components/Other.svelte';
+import NSShow from '../components/NSShow.svelte';
 import '../fullpage/pageable.min.css'
 import '../styles/global.scss';
 
@@ -75,7 +76,7 @@ window.addEventListener('load', () => document.querySelector(".pg-wrapper").styl
         <SlideShow client:visible/>
         </div></section>
         <section data-anchor="Page 5" class="flex justify-center items-center   py-8"><div class="text">
-            <Other client:visible/>
+            <NSShow client:visible/>
             </div></section>
         <section data-anchor="Page 6" class="flex justify-center items-center  h-[100vh]"><div class="text">
             <p class="text-3xl xm:text-4xl sm:text-4xl text-center p-4 font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
@@ -198,7 +199,13 @@ window.addEventListener('load', () => document.querySelector(".pg-wrapper").styl
     if(window.screen.width >= 480 ) {
     const pageable = new Pageable("main", {
 	animation: 400,
-	delay: 300
+	delay: 300,
+    events: {
+        wheel: true, // enable / disable mousewheel scrolling
+        mouse: false, // enable / disable mouse drag scrolling
+        touch: true, // enable / disable touch / swipe scrolling
+        keydown: true, // enable / disable keyboard navigation
+    },
 });
     }
 
