@@ -34,7 +34,7 @@
 	})
 </script>
 
-<div class="absolute " id="popupSlider">
+<div class="absolute" id="popupSlider">
 	<div
 		class="fixed flex h-full items-center justify-center shadow-md top-0 w-full z-50  hidden_1x1">
 		<div

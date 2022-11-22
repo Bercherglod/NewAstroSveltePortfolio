@@ -48,7 +48,7 @@ window.addEventListener('load', () => document.querySelector(".pg-wrapper").styl
 
 <Layout title="Portfolio">
     <main class="pg-container">
-        <section data-anchor="Page 1" class="flex justify-center items-center h-[100vh]">
+        <section data-anchor="Page 1" class="flex justify-center items-center " style="height:100vh">
             <div class="text">
             <header class="w-[full] flex flex-col-reverse xm:flex-row  flex-wrap-reverse justify-center items-center">
                 <div class="w-[100px] xm:w-[200px]  sm:w-[300px]">
@@ -70,13 +70,13 @@ window.addEventListener('load', () => document.querySelector(".pg-wrapper").styl
             </header>
         </div>
         </section>
-        <section data-anchor="Page 2" class="flex justify-center items-center overflow-hidden"><div class="text"><FrameAndCircle client:idle /></div></section>
+        <section data-anchor="Page 2" class="flex justify-center items-center overflow-hidden"><div class="text"><FrameAndCircle client:load /></div></section>
         <section data-anchor="Page 3" class="flex justify-evenly items-center py-16"><div class="text"><CartMob client:idle /></div></section>
         <section data-anchor="Page 4" class="flex justify-center items-center  py-8"><div class="text">
-        <SlideShow client:visible/>
+        <SlideShow client:idle/>
         </div></section>
         <section data-anchor="Page 5" class="flex justify-center items-center   py-8"><div class="text">
-            <NSShow client:visible/>
+            <NSShow client:idle/>
             </div></section>
         <section data-anchor="Page 6" class="flex justify-center items-center  h-[100vh]"><div class="text">
             <p class="text-3xl xm:text-4xl sm:text-4xl text-center p-4 font-bold from-purple-200 via-pink-300 to-blue-300 bg-gradient-to-r bg-clip-text text-transparent">
@@ -84,7 +84,7 @@ window.addEventListener('load', () => document.querySelector(".pg-wrapper").styl
             </p>
             <div class="w-full xm:w-[400px] mx-auto z-50">
                 <div class="pl-6 pr-6 pt-6 pb-1 border border-gray-300 bg-white sm:rounded-md">
-                  <form method="POST" >
+                  <form method="POST"  data-netlify="true" action="/?success=true">
                     <label class="block mb-6">
                       <span class="text-gray-700">Ваше имя</span>
                       <input
@@ -126,7 +126,7 @@ window.addEventListener('load', () => document.querySelector(".pg-wrapper").styl
     <div class="bg-gray-900 bg-opacity-80 fixed h-full sticky-0 top-0 w-full z-40" id="popupBg"></div>
     <div class="w-full xm:w-[400px] mx-auto z-50">
         <div class="pl-6 pr-6 pt-6 pb-1 border border-gray-300 bg-white sm:rounded-md">
-          <form method="POST" data-netlify="true">
+          <form method="POST" data-netlify="true" action="/?success=true">
             <label class="block mb-6">
               <span class="text-gray-700">Ваше имя</span>
               <input
