@@ -1,5 +1,13 @@
 <script>
-	import { Navigation, Pagination, A11y, FreeMode, Thumbs, Grid } from 'swiper'
+	import {
+		Navigation,
+		Pagination,
+		A11y,
+		FreeMode,
+		Thumbs,
+		Grid,
+		Lazy
+	} from 'swiper'
 
 	import { Swiper, SwiperSlide } from 'swiper/svelte'
 	import { onMount } from 'svelte'
@@ -67,39 +75,51 @@
 		</button>
 		<Swiper
 			style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff"
-			loop={true}
 			spaceBetween={10}
 			navigation={true}
+			lazy={{
+				enabled: true,
+				loadPrevNext: true,
+				loadPrevNextAmount: 2,
+				loadOnTransitionStart: true
+			}}
 			thumbs={{ swiper: thumbsSwiper }}
-			modules={[FreeMode, Navigation, Thumbs]}
+			modules={[FreeMode, Navigation, Thumbs, Lazy]}
 			class="mySwiper2 h-[30vh] z-50">
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-					<img src="/other/enjoyment.svg" />
+					<img class="swiper-lazy" src="/other/enjoyment.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-					<img src="/other/studilator.svg" />
+					<img class="swiper-lazy" src="/other/studilator.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-600 grid col-span-2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-					<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+					<img
+						class="swiper-lazy w-full max-w-full h-auto max-h-full"
+						src="/other/polara.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="w-full grid bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 					<div
 						class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-						<img src="/other/laboratory.png" />
+						<img class="swiper-lazy" src="/other/laboratory.png" />
 					</div>
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-					<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+					<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="grid">
@@ -107,51 +127,60 @@
 						class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 						А еще <br />создаю<br /> логотипы
 					</h1>
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-					<img src="/other/zver.svg" />
+					<img class="swiper-lazy" src="/other/zver.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-600 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-					<img src="/other/hewlic.svg" />
+					<img class="swiper-lazy" src="/other/hewlic.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="bg-slate-100 grid ">
-					<img src="/other/zivil.svg" />
+					<img class="swiper-lazy" src="/other/zivil.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-					<img src="/other/knifecut.svg" />
+					<img class="swiper-lazy" src="/other/knifecut.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 grid bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-					<img src="/other/arxware.svg" />
+					<img class="swiper-lazy" src="/other/arxware.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="w-[100vw] h-[60vh] xm:h-[100vh] grid ">
 					<div class="grid bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-					<img src="/other/enjoyment.svg" />
+					<img class="swiper-lazy" src="/other/enjoyment.svg" />
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-					<img src="/other/studilator.svg" />
+					<img class="swiper-lazy" src="/other/studilator.svg" />
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-					<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+					<img
+						class="swiper-lazy w-full max-w-full h-auto max-h-full"
+						src="/other/polara.svg" />
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
@@ -159,14 +188,15 @@
 					class="w-full bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 					<div
 						class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-						<img src="/other/laboratory.png" />
+						<img class="swiper-lazy" src="/other/laboratory.png" />
 					</div>
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-					<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+					<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="">
@@ -174,51 +204,60 @@
 						class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 						А еще <br />создаю<br /> логотипы
 					</h1>
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-					<img src="/other/zver.svg" />
+					<img class="swiper-lazy" src="/other/zver.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-					<img src="/other/hewlic.svg" />
+					<img class="swiper-lazy" src="/other/hewlic.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="bg-slate-100 ">
-					<img src="/other/zivil.svg" />
+					<img class="swiper-lazy" src="/other/zivil.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-					<img src="/other/knifecut.svg" />
+					<img class="swiper-lazy" src="/other/knifecut.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-					<img src="/other/arxware.svg" />
+					<img class="swiper-lazy" src="/other/arxware.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="w-[100vw] h-[60vh] xm:h-[100vh] ">
 					<div class="bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-					<img src="/other/enjoyment.svg" />
+					<img class="swiper-lazy" src="/other/enjoyment.svg" />
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-					<img src="/other/studilator.svg" />
+					<img class="swiper-lazy" src="/other/studilator.svg" />
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-					<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+					<img
+						class="swiper-lazy w-full max-w-full h-auto max-h-full"
+						src="/other/polara.svg" />
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
@@ -226,14 +265,15 @@
 					class="w-full bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 					<div
 						class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-						<img src="/other/laboratory.png" />
+						<img class="swiper-lazy" src="/other/laboratory.png" />
 					</div>
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-					<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+					<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="">
@@ -241,34 +281,41 @@
 						class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 						А еще <br />создаю<br /> логотипы
 					</h1>
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-					<img src="/other/zver.svg" />
+					<img class="swiper-lazy" src="/other/zver.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-					<img src="/other/hewlic.svg" />
+					<img class="swiper-lazy" src="/other/hewlic.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="bg-slate-100 ">
-					<img src="/other/zivil.svg" />
+					<img class="swiper-lazy" src="/other/zivil.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-					<img src="/other/knifecut.svg" />
+					<img class="swiper-lazy" src="/other/knifecut.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div
 					class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-					<img src="/other/arxware.svg" />
+					<img class="swiper-lazy" src="/other/arxware.svg" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 			<SwiperSlide>
 				<div class="w-[100vw] h-[60vh] xm:h-[100vh] ">
 					<div class="bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
+					<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 				</div></SwiperSlide>
 		</Swiper>
 	</div>
@@ -287,33 +334,36 @@
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-				<img src="/other/enjoyment.svg" />
+				<img class="swiper-lazy" src="/other/enjoyment.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-				<img src="/other/studilator.svg" />
+				<img class="swiper-lazy" src="/other/studilator.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-				<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+				<img
+					class="swiper-lazy w-full max-w-full h-auto max-h-full"
+					src="/other/polara.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div class="w-full bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 				<div
 					class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-					<img src="/other/laboratory.png" />
+					<img class="swiper-lazy" src="/other/laboratory.png" />
 				</div>
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-				<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+				<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="">
@@ -321,65 +371,75 @@
 					class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 					А еще <br />создаю<br /> логотипы
 				</h1>
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-				<img src="/other/zver.svg" />
+				<img class="swiper-lazy" src="/other/zver.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-				<img src="/other/hewlic.svg" />
+				<img class="swiper-lazy" src="/other/hewlic.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="bg-slate-100 ">
-				<img src="/other/zivil.svg" />
+				<img class="swiper-lazy" src="/other/zivil.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-				<img src="/other/knifecut.svg" />
+				<img class="swiper-lazy" src="/other/knifecut.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-				<img src="/other/arxware.svg" />
+				<img class="swiper-lazy" src="/other/arxware.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="w-[100vw] h-[60vh] xm:h-[100vh] ">
 				<div class="bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-				<img src="/other/enjoyment.svg" />
+				<img class="swiper-lazy" src="/other/enjoyment.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-				<img src="/other/studilator.svg" />
+				<img class="swiper-lazy" src="/other/studilator.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-				<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+				<img
+					class="swiper-lazy w-full max-w-full h-auto max-h-full"
+					src="/other/polara.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div class="w-full bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 				<div
 					class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-					<img src="/other/laboratory.png" />
+					<img class="swiper-lazy" src="/other/laboratory.png" />
 				</div>
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-				<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+				<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="">
@@ -387,65 +447,75 @@
 					class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 					А еще <br />создаю<br /> логотипы
 				</h1>
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-				<img src="/other/zver.svg" />
+				<img class="swiper-lazy" src="/other/zver.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-				<img src="/other/hewlic.svg" />
+				<img class="swiper-lazy" src="/other/hewlic.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="bg-slate-100 ">
-				<img src="/other/zivil.svg" />
+				<img class="swiper-lazy" src="/other/zivil.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-				<img src="/other/knifecut.svg" />
+				<img class="swiper-lazy" src="/other/knifecut.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-				<img src="/other/arxware.svg" />
+				<img class="swiper-lazy" src="/other/arxware.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="w-[100vw] h-[60vh] xm:h-[100vh] ">
 				<div class="bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-				<img src="/other/enjoyment.svg" />
+				<img class="swiper-lazy" src="/other/enjoyment.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-				<img src="/other/studilator.svg" />
+				<img class="swiper-lazy" src="/other/studilator.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-				<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+				<img
+					class="swiper-lazy w-full max-w-full h-auto max-h-full"
+					src="/other/polara.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div class="w-full bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 				<div
 					class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-					<img src="/other/laboratory.png" />
+					<img class="swiper-lazy" src="/other/laboratory.png" />
 				</div>
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-				<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+				<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="">
@@ -453,34 +523,41 @@
 					class="w-full text-base xm:text-4xl sm:text-4xl text-center font-bold text-white">
 					А еще <br />создаю<br /> логотипы
 				</h1>
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-				<img src="/other/zver.svg" />
+				<img class="swiper-lazy" src="/other/zver.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-				<img src="/other/hewlic.svg" />
+				<img class="swiper-lazy" src="/other/hewlic.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="bg-slate-100 ">
-				<img src="/other/zivil.svg" />
+				<img class="swiper-lazy" src="/other/zivil.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-				<img src="/other/knifecut.svg" />
+				<img class="swiper-lazy" src="/other/knifecut.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-				<img src="/other/arxware.svg" />
+				<img class="swiper-lazy" src="/other/arxware.svg" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 		<SwiperSlide>
 			<div class="w-[100vw] h-[60vh] xm:h-[100vh] ">
 				<div class="bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
+				<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 			</div></SwiperSlide>
 	</Swiper>
 </div>

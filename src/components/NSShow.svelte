@@ -1,5 +1,13 @@
 <script>
-	import { Navigation, Pagination, A11y, FreeMode, Thumbs, Grid } from 'swiper'
+	import {
+		Navigation,
+		Pagination,
+		A11y,
+		FreeMode,
+		Thumbs,
+		Grid,
+		Lazy
+	} from 'swiper'
 	import { Swiper, SwiperSlide } from 'swiper/svelte'
 	import { onMount } from 'svelte'
 	import 'swiper/css'
@@ -22,13 +30,17 @@
 		const popSX = document.querySelector('#popupSX'),
 			popupSlider = document.querySelector('#popupSlider'),
 			popupSBg = document.querySelector('#popupSBg'),
-			thumbsSlideSwiper = document.querySelector('.mySwiper3')
+			thumbsSlideSwiper = document.querySelectorAll('.mySwiper3 .swiper-slide')
 		function toggleHidden() {
 			//popupSlider.classList.toggle('hidden')
 			popupSlider.firstElementChild.classList.toggle('hidden_1x1')
 			popupSBg.classList.toggle('hidden_1x1')
 		}
-		thumbsSlideSwiper.addEventListener('click', () => toggleHidden())
+
+		for (let i = 0; i < thumbsSlideSwiper.length; i++) {
+			thumbsSlideSwiper[i].addEventListener('click', () => toggleHidden())
+		}
+
 		popSX.addEventListener('click', () => toggleHidden())
 		popupSBg.addEventListener('click', () => toggleHidden())
 	})
@@ -70,20 +82,21 @@
 				loop={true}
 				spaceBetween={0}
 				navigation={true}
+				lazy={true}
 				pagination={{ clickable: true, dynamicBullets: true }}
 				thumbs={{ swiper: thumbsSwiper }}
-				modules={[FreeMode, Navigation, Pagination, Thumbs]}
+				modules={[FreeMode, Navigation, Pagination, Thumbs, Lazy]}
 				class="mySwiper2 h-[70vh] z-30">
 				<SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-						<img src="/other/enjoyment.svg" />
+						<img class="swiper-lazy" src="/other/enjoyment.svg" />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-						<img src="/other/studilator.svg" />
+						<img class="swiper-lazy" src="/other/studilator.svg" />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
@@ -99,14 +112,17 @@
 						class="w-full  bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 						<div
 							class="w-full flex flex-col justify-center items-center backdrop-blur-[4px] overflow-hidden">
-							<img src="/other/laboratory.png" style="max-height:640px" />
+							<img
+								class="swiper-lazy"
+								src="/other/laboratory.png"
+								style="max-height:640px" />
 						</div>
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-						<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+						<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
 					</div>
 				</SwiperSlide>
 				<SwiperSlide>
@@ -122,62 +138,80 @@
 				<SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-						<img src="/other/zver.svg" />
+						<img class="swiper-lazy" src="/other/zver.svg" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-600  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-						<img src="/other/hewlic.svg" />
+						<img class="swiper-lazy" src="/other/hewlic.svg" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div class="bg-slate-100  ">
-						<img src="/other/zivil.svg" />
+						<img class="swiper-lazy" src="/other/zivil.svg" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-						<img src="/other/knifecut.svg" />
+						<img class="swiper-lazy" src="/other/knifecut.svg" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-						<img src="/other/arxware.svg" />
+						<img class="swiper-lazy" src="/other/arxware.svg" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/dz_01.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/dz_01.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/rotunda_01.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/rotunda_01.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/cupboard_01.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/cupboard_01.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/cupboard_m_01.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/cupboard_m_01.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/cupboard_02.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/cupboard_02.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/kalinina.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/kalinina.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
@@ -192,55 +226,82 @@
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/sber_02.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/sber_02.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/rotunda_02.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/rotunda_02.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/3d/sunfill.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/3d/sunfill.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/03.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/03.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/01.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/01.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/04.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/04.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/05.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/05.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/06.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/06.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/07.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/07.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
@@ -255,31 +316,46 @@
 					<div
 						class="bg-slate-300 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/10.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/10.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/09.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/09.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/11.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/11.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/02.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/02.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide><SwiperSlide>
 					<div
 						class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200"
 						style="display:grid; place-content: center;">
-						<img src="/other/other/12.webp" style="max-height:640px" />
+						<img
+							class="swiper-lazy"
+							src="/other/other/12.webp"
+							style="max-height:640px" />
 					</div>
 				</SwiperSlide>
 			</Swiper>
@@ -291,29 +367,32 @@
 		on:swiper={setThumbsSwiper}
 		spaceBetween={0}
 		slidesPerView={4}
+		lazy={true}
 		grid={{
 			rows: 3
 		}}
 		navigation={true}
 		pagination={{ clickable: true, dynamicBullets: true }}
-		modules={[Grid, Navigation, Pagination, Thumbs]}
+		modules={[Grid, Navigation, Pagination, Thumbs, Lazy]}
 		class="mySwiper3 w-[100vw] h-[70vh] xm:h-[100vh] py-10">
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-300 to-purple-300">
-				<img src="/other/enjoyment.svg" />
+				<img class="swiper-lazy" src="/other/enjoyment.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-300 to-blue-400">
-				<img src="/other/studilator.svg" />
+				<img class="swiper-lazy" src="/other/studilator.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-600  col-span-2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 to-sky-200">
-				<img src="/other/polara.svg" class="w-full max-w-full h-auto max-h-full" />
+				<img
+					class="swiper-lazy w-full max-w-full h-auto max-h-full"
+					src="/other/polara.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
@@ -321,14 +400,14 @@
 				class="w-full  bg-[url('/other/laboratory_bg.webp')] bg-cover bg-center">
 				<div
 					class="w-full h-full flex flex-col justify-center items-center backdrop-blur-[1px] overflow-hidden">
-					<img src="/other/laboratory.png" />
+					<img class="swiper-lazy" src="/other/laboratory.png" />
 				</div>
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-800 to-red-600">
-				<img src="/other/deft.svg" class="pr-[10px] pt-[10px]" />
+				<img class="swiper-lazy pr-[10px] pt-[10px]" src="/other/deft.svg" />
 			</div>
 		</SwiperSlide>
 		<SwiperSlide>
@@ -342,26 +421,26 @@
 		<SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500 to-orange-600">
-				<img src="/other/zver.svg" />
+				<img class="swiper-lazy" src="/other/zver.svg" />
 			</div>
 		</SwiperSlide><SwiperSlide>
 			<div
 				class="bg-slate-600  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-amber-400 to-amber-600">
-				<img src="/other/hewlic.svg" />
+				<img class="swiper-lazy" src="/other/hewlic.svg" />
 			</div>
 		</SwiperSlide><SwiperSlide>
 			<div class="bg-slate-100  ">
-				<img src="/other/zivil.svg" />
+				<img class="swiper-lazy" src="/other/zivil.svg" />
 			</div>
 		</SwiperSlide><SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200 to-gray-300">
-				<img src="/other/knifecut.svg" />
+				<img class="swiper-lazy" src="/other/knifecut.svg" />
 			</div>
 		</SwiperSlide><SwiperSlide>
 			<div
 				class="bg-slate-300  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-100 to-gray-200">
-				<img src="/other/arxware.svg" />
+				<img class="swiper-lazy" src="/other/arxware.svg" />
 			</div>
 		</SwiperSlide><SwiperSlide>
 			<div class=" bg-[url('/other/3d/dz_01.webp')] bg-cover bg-center" />
