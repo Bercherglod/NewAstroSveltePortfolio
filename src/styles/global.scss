@@ -11,7 +11,7 @@
         @apply from-blue-300  via-pink-300 to-purple-200 bg-gradient-to-r bg-clip-text text-transparent;
       }
     .slide-text{
-        @apply hidden sm:w-[33vw] xl:w-[30vw]  right-[10px] top-[10px] xl2:top-[45px] lg:flex justify-center flex-col;
+        @apply hidden sm:w-[33vw] xl:w-[30vw]  right-[10px] top-[10px] xl2:top-[45px] lg:flex  flex-col;
     }
     .slide-text h1, ul, p {
         @apply xl:pl-[10%] sm:pl-[7%];
