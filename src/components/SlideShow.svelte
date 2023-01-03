@@ -1,5 +1,5 @@
 <script>
-	import { Navigation, Pagination, A11y } from 'swiper'
+	import { Navigation, Pagination, A11y, Lazy } from 'swiper'
 
 	import { Swiper, SwiperSlide } from 'swiper/svelte'
 
@@ -7,23 +7,24 @@
 	import 'swiper/css'
 	import 'swiper/css/navigation'
 	import 'swiper/css/pagination'
-	import '../styles/global.scss'
+	import 'swiper/css/lazy'
+	//	import '../styles/global.scss'
 
 	let parentFrameWidth
 </script>
 
 <div class="w-[100vw]  sm:h-[auto] sm:w-[90vw] xl2:w-[1600px] overflow-hidden">
 	<Swiper
-		modules={[Navigation, Pagination, A11y]}
+		modules={[Navigation, Pagination, A11y, Lazy]}
 		spaceBetween={0}
 		slidesPerView={1}
+		preloadImages={false}
+		lazy={true}
 		navigation
 		pagination={{ clickable: true, dynamicBullets: true }}
-		on:slideChange={() => console.log('slide change')}
-		on:swiper={(e) => console.log(e.detail[0])}
 		class="sm:rounded-3xl h-[58vh] w-[140vw] sm:h-[auto] sm:w-full">
 		<SwiperSlide
-			><div class="slide-text btn ">
+			><div class="slide-text btn  h-[58vh]">
 				<h1>Ремонт спецтехники</h1>
 				<ul>
 					<li>Максимальная производительность</li>
@@ -38,9 +39,14 @@
 					</li>
 				</ul>
 			</div>
-			<img src="/images/tractorcat_end.jpg" /></SwiperSlide>
+			<img
+				data-src="images/tractorcat_end.webp"
+				alt="tractorcat.ru"
+				class="swiper-lazy" />
+			<div class="swiper-lazy-preloader  swiper-lazy-preloader-white" />
+		</SwiperSlide>
 		<SwiperSlide>
-			<div class="slide-text btn">
+			<div class="slide-text btn h-[58vh]">
 				<h1>Для экологической компании</h1>
 				<p>
 					Использовал два фона для parallax-эффекта: скрин из google earth с активной
@@ -50,10 +56,14 @@
 				</p>
 				<a href="https://noosphera.art/" class="xl:pl-[10%] sm:pl-[7%]">Ноосфера</a>
 			</div>
-			<img src="/images/noosphera_end.jpg" />
+			<img
+				data-src="images/noosphera_end.webp"
+				alt="noosphera.art"
+				class="swiper-lazy" />
+			<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
 		</SwiperSlide>
 		<SwiperSlide>
-			<div class="slide-text btn">
+			<div class="slide-text btn h-[58vh]">
 				<h1>Портфолио для ретушера</h1>
 				<ul>
 					<li>Responsive images</li>
@@ -63,14 +73,24 @@
 				<a href="https://boretouch.eyeglobe.ru" class="xl:pl-[10%] sm:pl-[7%]"
 					>Boretouch</a>
 			</div>
-			<img src="/images/boretouch_end.jpg" /></SwiperSlide>
+			<img
+				data-src="images/boretouch_end.webp"
+				alt="boretouch"
+				class="swiper-lazy" />
+			<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
+		</SwiperSlide>
 		<SwiperSlide>
-			<div class="slide-text btn">
+			<div class="slide-text btn h-[58vh]">
 				<h1>Для фотографа</h1>
 			</div>
-			<img src="/images/isk_end.jpg" /></SwiperSlide>
+			<img
+				data-src="images/isk_end.webp"
+				alt="Сайт фотографа"
+				class="swiper-lazy" />
+			<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
+		</SwiperSlide>
 		<SwiperSlide>
-			<div class="slide-text btn">
+			<div class="slide-text btn h-[58vh]">
 				<h1>Сервис доставки чая</h1>
 				<p>
 					WordPress WooCommerce. Из интересного - мгновенная фильтрация товаров на
@@ -79,9 +99,11 @@
 				<a href="http://gettea.eyeglobe.ru/" class="xl:pl-[10%] sm:pl-[7%]"
 					>Gettea</a>
 			</div>
-			<img src="/images/tea_end.jpg" /></SwiperSlide>
+			<img data-src="images/tea_end.webp" alt="gettea" class="swiper-lazy" />
+			<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
+		</SwiperSlide>
 		<SwiperSlide>
-			<div class="slide-text btn">
+			<div class="slide-text btn h-[58vh]">
 				<h1>Для продаж оборудования</h1>
 				<p>
 					Нестандартное кроссбраузерное меню адаптированное под разные разрешения и
@@ -89,6 +111,8 @@
 				</p>
 				<a href="http://deft.ru/" class="xl:pl-[10%] sm:pl-[7%]">Deft</a>
 			</div>
-			<img src="/images/deft_end.jpg" /></SwiperSlide>
+			<img data-src="images/deft_end.webp" alt="deft.ru" class="swiper-lazy" />
+			<div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
+		</SwiperSlide>
 	</Swiper>
 </div>

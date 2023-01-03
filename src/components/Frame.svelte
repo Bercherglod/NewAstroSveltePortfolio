@@ -100,6 +100,7 @@
 			src={frameSrc}
 			width={frameSetWidth}
 			height={frameSetHeight}
+			loading="eager"
 			allow="fullscreen"
 			title="tractorcat"
 			class="absolute xm:rounded-3xl xm:shadow-2xl xm:border-solid xm:border-[4px]"
